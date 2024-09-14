@@ -1,0 +1,38 @@
+.errorlist{
+    list-style-type:none;
+    color:red;
+    margin:0;
+    padding:0
+}
+
+.invalid input, .invalid textarea{
+    border-color:red;
+}
+
+.container {
+    max-width: 600px;
+}
+
+.invalid input, .invalid textarea, .invalid select {
+    border-color: #e3342f;
+}
+
+.alert-danger {
+    padding: 10px;
+    font-size: 14px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.form-label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.form-control{
+    background-color: red;
+}
+.kutu{
+    margin-left: 50px;
+    background-color: darkblue;
+}

@@ -1,0 +1,40 @@
+{% load static %}
+<div id="portfolio" class="text-center paddsection">
+
+    <div class="container">
+      <div class="section-title text-center">
+        <h2>My Portfolio</h2>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+
+          <div class="portfolio-list">
+            <ul class="nav list-unstyled" id="portfolio-flters">
+              <li class="filter filter-active" data-filter=".all">Tamamı <br>({{Portfoy_toplam}})</li>
+
+              {% for a,b in portfoy_adet %}
+              <li class="filter " data-filter=".{{b}}">{{ b }} <br>({{a.portfoy_project_count}})</li>
+
+              {% endfor %}
+            </ul>
+          </div>
+
+          <div class="portfolio-container">
+            {% for portfoy_projeler_list in portfoy_projeler %}
+            <div class="col-lg-4 col-md-6 portfolio-thumbnail all {{ portfoy_projeler_list.categories.kategori }}">
+              <a class="popup-img" href='{{portfoy_projeler_list.images.url}}'>
+                {% comment %} <img src="{% static 'home/images/portfolio/2.jpg' %}" alt="Me"> {% endcomment %}
+                <img src="{{portfoy_projeler_list.images.url}}" alt="Me"><p>{{portfoy_projeler_list.description}}</p>
+              </a>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <!-- End section portfolio -->

@@ -1,0 +1,25 @@
+{% extends "admin_app/admin_layout.html" %}
+
+{% block header %}
+<link rel="stylesheet" href="admin_app/blog_ekle.css">
+<title>Erk | Blog Ekle</title>
+{% endblock header %}
+
+{% block content %}
+<div class="container mt-5">
+    <form action="{% url 'blog_ekle' %}" method="POST" novalidate enctype="multipart/form-data">
+        {% csrf_token %}
+        {% for field in form %}
+            <div class="mb-3 {% if field.errors %}invalid{% endif %}">
+                {% if field.errors %}
+                    <div class="alert alert-danger">{{ field.errors }}</div>
+                {% endif %}
+                <label class="form-label" for="{{ field.id_for_label }}">{{ field.label }}</label>
+                <div class="kutu">{{ field }}</div>
+            </div>
+        {% endfor %}
+        <button type="submit" class="btn btn-primary w-100">Kaydet</button>
+    </form>
+
+</div>
+{% endblock content %}

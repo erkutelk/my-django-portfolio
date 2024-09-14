@@ -1,0 +1,32 @@
+{% extends "admin_app/admin_layout.html" %}
+
+{% block header %}
+<link rel="stylesheet" href="admin_app/navbar_ekle.css">
+<title>Erk | Blog Menü Ekle</title>
+{% endblock header %}
+{% block content %}
+<div class="container">
+    <form  method="POST" novalidate>
+        {% csrf_token %}
+        {% for field in menu_form %}
+            <div class="mb-3 {% if field.errors %}invalid{% endif %}">
+                
+                <label class="form-label" for="{{ field.id_for_label }}">{{ field.label }}</label>
+                {{ field }}
+                {% if field.errors %}
+                    <div class="alert alert-danger">{{ field.errors }}</div>
+                {% endif %}
+            </div>
+        {% endfor %}
+        <button type="submit" class="btn btn-primary w-100">Güncelle</button>
+    </form>
+
+</div>
+<style>
+    .form-control{
+    width: 500px;
+    height: 50px;
+}
+
+</style>
+{% endblock content %}

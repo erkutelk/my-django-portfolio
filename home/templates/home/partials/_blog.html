@@ -1,0 +1,60 @@
+{% load static %}
+
+<div id="journal" class="text-left paddsection">
+  <div class="container">
+    <div class="section-title text-center">
+      <h2>Bloglar</h2>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="journal-block">
+      <div class="row">
+        {% for portfoy_projeler_list in blog %}
+        <div class="col-lg-4 col-md-6">
+          <div class="journal-info">
+            <a href="{% url "detay" portfoy_projeler_list.slug %}"><img src="{{portfoy_projeler_list.image.url}}" class="img-responsive" alt="img"></a>
+
+            <div class="journal-txt"><a href="{% url "detay" portfoy_projeler_list.slug %}">
+
+              <h4><a href="{% url "detay" portfoy_projeler_list.slug %}">{{ portfoy_projeler_list.title_blog|title}}</a></h4>
+              <p class="separator">{{portfoy_projeler_list.description_blog|truncatechars:25}} <a href="{% url "detay" portfoy_projeler_list.slug %}">Devamı</a></p>
+            </a>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+
+
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

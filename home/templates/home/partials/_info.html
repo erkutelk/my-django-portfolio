@@ -1,0 +1,28 @@
+<div id="header" class="home">
+    <div class="container">
+      <div class="header-content">
+        {% for a in site_baslangic %}
+
+        <h1>I'm <span class="typed"></span></h1>
+        <p>{{a.title}}</p>
+        
+        <ul class="list-unstyled list-social">
+          <li><a href="/{{a.linkedin}}"><i class="ion-social-facebook"></i></a></li>
+          <li><a href="/{{a.instagram}}"><i class="ion-social-twitter"></i></a></li>
+          <li><a href="/{{a.git}}"><i class="ion-social-instagram"></i></a></li>
+          <li><a href="#"><i class="ion-social-googleplus"></i></a></li>
+          <li><a href="#"><i class="ion-social-tumblr"></i></a></li>
+          <li><a href="#"><i class="ion-social-dribbble"></i></a></li>
+          <style>
+            #header {
+              background: url("{{a.images.url}}") repeat scroll center center / cover;
+            }
+          </style>
+
+        {% endfor %}
+
+        </ul>
+      </div>
+    </div>
+  </div>
+  

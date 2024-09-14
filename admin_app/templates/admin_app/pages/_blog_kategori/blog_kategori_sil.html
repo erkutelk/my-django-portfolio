@@ -1,0 +1,8 @@
+<form method="POST">
+    {% csrf_token %}
+    <div class="button-group">
+        {{menu_objects}}
+        <button type="submit">Evet, Sil</button>
+        <a href="{% url 'Admin_kategori_ekle' %}">İptal</a>
+    </div>
+</form>

@@ -1,0 +1,23 @@
+<!-- start sectoion contact -->
+<div id="contact" class="paddsection">
+  <div class="container">
+    <div class="contact-block1">
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="contact-contact">
+            <ul class="contact-details">
+              {% for isim in contact %}
+              <h2 class="mb-30">{{isim.title}}</h2>
+              <li><span>{{isim.konum}}</span></li>
+              <li><span>{{isim.konum2}}</span></li>
+              <li><span>{{isim.telefon}}</span></li>
+              <li><span>{{isim.mail}}</span></li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- start sectoion contact -->

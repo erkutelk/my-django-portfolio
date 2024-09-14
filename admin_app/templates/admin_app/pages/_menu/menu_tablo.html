@@ -1,0 +1,28 @@
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col"></th>
+            <th scope="col">Başlık</th>
+            <th scope="col">Durum</th>
+            <th scope="col">Link</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for a in menü %}
+        <tr>
+            <th scope="row">{{ forloop.counter }}</th>
+            <td>{{a.title}}</td>
+            {% if a.isActive %}
+                <td class='bg-success text-white'>Aktif</td>
+            {% else %}
+            <td class='bg-danger text-white'>Aktif</td>
+            {% endif %}
+            <td>{{a.link}}</td>
+            <td><a href="{% url "navbar_düzenle" a.id %}">Düzenle</a></td>
+            <td><a href="{% url 'navbar_sil' a.id %}">Sil</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>

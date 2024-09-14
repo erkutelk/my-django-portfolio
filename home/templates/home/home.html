@@ -1,0 +1,23 @@
+{% extends "home/layout.html" %}
+{% load static %}
+
+{% block content %}
+
+    {% include "home/partials/_info.html" %}
+
+    {% for blk in bolum_hakkimda %}
+        {% include "home/partials/_about.html" %}
+    {% endfor %}
+
+    {% comment %} {% include "home/partials/_about.html" %} {% endcomment %}
+    {% include "home/partials/_card.html" %}
+
+
+    {% include "home/partials/_portfolio.html" %}
+
+    {% include "home/partials/_portfolio-project.html" %}
+
+    {% include "home/partials/_blog.html" %}
+    
+    {% include "home/partials/_contact.html" %}
+{% endblock content %}

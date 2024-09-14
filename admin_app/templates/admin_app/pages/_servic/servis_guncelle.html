@@ -1,0 +1,26 @@
+{% extends "admin_app/admin_layout.html" %}
+{% block content %}
+<form  novalidate class="needs-validation" method="POST">
+    {% csrf_token %}
+    {% for field in form %}
+        <div class="mb-3 {% if field.errors %}invalid{% endif %}">
+            <label class="form-label" for="{{ field.id_for_label }}">{{ field.label }}</label>
+            {{ field }}
+            {% if field.errors %}
+                <div class="alert alert-danger">{{ field.errors }}</div>
+            {% endif %}
+        </div>
+    {% endfor %}
+    <button type="submit" class="btn btn-primary w-100">Güncelle</button>
+</form>
+
+
+
+{% endblock content %}
+
+
+
+
+
+
+

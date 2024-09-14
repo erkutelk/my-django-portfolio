@@ -1,0 +1,62 @@
+{% extends "admin_app/admin_layout.html" %}
+
+{% block header %}
+<link rel="stylesheet" href="admin_app/blog_ekle.css">
+<title>Erk | Kategori Ekle</title>
+{% endblock header %}
+{% block content %}
+
+<div class="container">
+    <form action="{% url 'Admin_kategori_ekle' %}" method="POST" novalidate>
+        {% csrf_token %}
+        {% for field in form %}
+        <div class="mb-3 {% if field.errors %}invalid{% endif %}">
+
+            <label class="form-label" for="{{ field.id_for_label }}">{{ field.label }}</label>
+            {{ field }}
+            {% if field.errors %}
+            <div class="alert alert-danger">{{ field.errors }}</div>
+            {% endif %}
+        </div>
+        {% endfor %}
+        <button type="submit" class="btn btn-primary w-100">Kaydet</button>
+    </form>
+    <div class="tablo" style='margin-top:15px;'>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col"></th>
+                    <th scope="col">Başlık</th>
+                    <th scope="col">Durum</th>
+                    <th scope="col">Link</th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for a in menü %}
+                <tr>
+                    <th scope="row">{{ forloop.counter }}</th>
+                    <td>{{a.kategori}}</td>
+                    {% if a.isActive %}
+                    <td class='bg-success text-white'>Aktif</td>
+                    {% else %}
+                    <td class='bg-danger text-white'>Pasif</td>
+                    {% endif %}
+                    <td>{{a.slug}}</td>
+                    <td><a href="{% url 'Admin_kateogri_guncelle' a.id %}">Düzenle</a></td>
+                    <td><a href="{% url 'Admin_kateogri_sil' a.id %}">Sil</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+<style>
+    .form-control {
+        width: 500px;
+        height: 50px;
+    }
+</style>
+{% endblock content %}

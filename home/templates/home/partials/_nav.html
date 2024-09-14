@@ -1,0 +1,38 @@
+{% load static %}
+<nav id="main-nav">
+    <div class="row">
+      <div class="container">
+        <div class="logo">
+          <a href="{% url "anasayfa" %}"><img src="{% static 'home/images/ERk (2).png' %}" alt="logo"></a>
+        </div>
+
+        <div class="responsive"><i data-icon="m" class="ion-navicon-round"></i></div>
+
+        <ul class="nav-menu list-unstyled">
+          {% for a in menu %}
+            {% if a.isActive %}
+            <li><a href="{{a.link}}" class="smoothScroll">{{a.title}}</a></li>
+            {% endif %}
+          {% endfor %}
+          <li><a href="{% url 'blog_ekle' %}" class="smoothScroll">Yönetim</a></li>
+
+          <li><a href="#header" class="smoothScroll">Home</a></li>
+          <li><a href="#about" class="smoothScroll">About</a></li>
+          <li><a href="#portfolio" class="smoothScroll">Portfolio</a></li>
+          <li><a href="#journal" class="smoothScroll">Blog</a></li>
+          {% if user.is_authenticated %}
+          
+          <li><a href="{% url 'login' %}" class="smoothScroll">Login</a></li>
+          
+          
+          {% else %}
+          <li><a href="{% url 'logout' %}" class="smoothScroll">Logaout</a></li>
+
+
+          {% endif %}
+
+        </ul>
+
+      </div>
+    </div>
+  </nav>

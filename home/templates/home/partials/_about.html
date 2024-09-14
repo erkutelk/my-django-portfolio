@@ -1,0 +1,26 @@
+{% load static %}
+
+<div id="about" class="paddsection">
+    <div class="container">
+      <div class="row justify-content-between">
+        <div class="col-lg-4 ">
+          <div class="div-img-bg">
+            <div class="about-img">
+              <img src="{{blk.about_image.url}}" alt="Me">
+            </div>
+            
+          </div>
+        </div>
+
+        <div class="col-lg-7">
+          <div class="about-descr">
+            <p class="p-heading">{{blk.about_title}}</p>
+            <hr>
+            <p class="separator">{{blk.about_description}}</p>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>

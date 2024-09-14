@@ -1,0 +1,60 @@
+{% extends "admin_app/admin_layout.html" %}
+{% block content %}
+<form action="{% url 'servis_ekle' %}" method="POST" novalidate>
+    {% csrf_token %}
+    {% for field in form %}
+        <div class="mb-3 {% if field.errors %}invalid{% endif %}">
+            <label class="form-label" for="{{ field.id_for_label }}">{{ field.label }}</label>
+            {{ field }}
+            {% if field.errors %}
+                <div class="alert alert-danger">{{ field.errors }}</div>
+            {% endif %}
+        </div>
+    {% endfor %}
+    <button type="submit" class="btn btn-primary w-100">Kaydet</button>
+</form>
+
+<div class="tablo" style='margin-top:15px;'>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col"></th>
+                <th scope="col">Başlık</th>
+                <th scope="col">Açıklama</th>
+                <th scope="col">Durum</th>
+                <th scope="col">Düzenle</th>
+                <th scope="col">Sil</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for a in value %}
+            <tr>
+                <th scope="row">{{ forloop.counter }}</th>
+                <td>{{a.title}}</td>
+                <td>{{a.description}}</td>
+
+
+                {% if a.isActive %}
+                <td class='bg-success text-white'>Aktif</td>
+                {% else %}
+                <td class='bg-danger text-white'>Pasif</td>
+                {% endif %}
+
+                <td><a href="{% url 'servis_guncelle' a.id %}">Düzenle</a></td>
+                <td><a href="{% url 'servis_sil' a.id %}">Sil</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+
+{% endblock content %}
+
+
+
+
+
+
+

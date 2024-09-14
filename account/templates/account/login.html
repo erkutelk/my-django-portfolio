@@ -1,0 +1,81 @@
+{% extends "home/layout.html" %}
+{% load static %}
+
+{% block content %}
+    <div class="form-container">
+        <form method="POST" class="form-box">
+            {% csrf_token %}
+            <h2>Giriş Yap</h2>
+            <div class="form-group">
+                <label for="username">Kullanıcı İsminiz</label>
+                <input type="text" name="username" id="username" class="form-input" placeholder="Kullanıcı isminizi giriniz">
+            </div>
+            <div class="form-group">
+                <label for="password">Şifrenizi Giriniz</label>
+                <input type="password" name="password" id="password" class="form-input" placeholder="Şifrenizi giriniz">
+            </div>
+            <button type="submit" class="btn">Giriş Yap</button>
+        </form>
+    </div>
+
+    <style>
+        .form-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f5f5f5;
+        }
+
+        .form-box {
+            background: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            width: 300px;
+            text-align: center;
+        }
+
+        .form-box h2 {
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #333;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+
+        .btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+        }
+
+        .btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+{% endblock content %}

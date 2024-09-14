@@ -1,0 +1,22 @@
+.errorlist {
+    list-style-type: none;
+    color: red;
+    margin: 0;
+    padding: 0;
+}
+
+.invalid input, .invalid textarea, .invalid select {
+    border-color: #e3342f;
+}
+
+.alert-danger {
+    padding: 0px;
+    /* font-size: 14px; */
+    border-radius: 5px;
+}
+
+.form-label {
+    font-weight: bold;    
+}
+
+

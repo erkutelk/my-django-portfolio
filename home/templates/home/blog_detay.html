@@ -1,0 +1,64 @@
+{% extends "home/layout.html" %}
+{% load static %}
+{% block content %}
+{% include "home/blog_kategori.html" %}
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,600,700" rel="stylesheet">
+<link href="{% static 'home/assets/css/bootstrap-responsive.css' %}" rel="stylesheet">
+<link href="{% static 'home/assets/css/docs.css' %}" rel="stylesheet">
+<link href="{% static 'home/assets/css/prettyPhoto.css' %}" rel="stylesheet">
+<link href="{% static 'home/assets/js/google-code-prettify/prettify.css' %}" rel="stylesheet">
+<link href="{% static 'home/assets/css/style.css' %}" rel="stylesheet">
+<link href="{% static 'home/assets/color/default.css' %}" rel="stylesheet">
+<section id="maincontent">
+    <div class="row">
+{% for a in blog_detay_slug %}
+      <div class="span8">
+        <!-- start article full post -->
+        <article class="blog-post">
+          <div class="post-heading">
+            <h3><a href="#">{{a.title_blog}}</a></h3>
+          </div>
+          <div class="clearfix">
+          </div>
+          <img src="{{a.image.url}}" alt="{{a.title_blog}}" />
+          <ul class="post-meta">
+            <li class="first"><i class="icon-calendar"></i><span>{{a.date}}</span></li>
+            <li class="last"><i class="icon-tags"></i><span><a href="#">Design</a>, <a href="#">Blog</a>, <a
+                  href="#">Tutorial</a></span></li>
+          </ul>
+          <div class="clearfix">
+          </div>
+          <p>
+            {{a.description_blog}}
+          </p>
+
+        </article>
+      </div>
+    </div>
+    {% endfor %}
+</section>
+  <script src="{% static 'assets/js/jquery.min.js' %}"></script>
+  <script src="{% static 'assets/js/jquery.easing.js' %}"></script>
+  <script src="{% static 'assets/js/google-code-prettify/prettify.js' %}"></script>
+  <script src="{% static 'assets/js/modernizr.js' %}"></script>
+  <script src="{% static 'assets/js/bootstrap.js' %}"></script>
+  <script src="{% static 'assets/js/jquery.elastislide.js' %}"></script>
+  <script src="{% static 'assets/js/sequence/sequence.jquery-min.js' %}"></script>
+  <script src="{% static 'assets/js/sequence/setting.js' %}"></script>
+  <script src="{% static 'assets/js/jquery.prettyPhoto.js' %}"></script>
+  <script src="{% static 'assets/js/application.js' %}"></script>
+  <script src="{% static 'assets/js/jquery.flexslider.js' %}"></script>
+  <script src="{% static 'assets/js/hover/jquery-hover-effect.js' %}"></script>
+  <script src="{% static 'assets/js/hover/setting.js' %}"></script>
+
+  <!-- Template Custom JavaScript File -->
+  <script src="assets/js/custom.js"></script>
+<style>
+  #main-nav{
+    padding:5px;
+    margin:0px
+  }
+
+</style>
+
+{% endblock content %}
