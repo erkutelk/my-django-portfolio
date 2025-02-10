@@ -21,10 +21,9 @@ Uygulama, tüm bu işlemleri gerçekleştirebileceğiniz dinamik bir arayüze sa
 ## Kurulum ve Kullanım
 
 1. **Proje Dosyalarını İndirin**: Bu repo'yu bilgisayarınıza klonlayın veya zip dosyası olarak indirin.
-2. **Gerekli Kütüphaneleri Yükleyin**: Proje kök dizininde terminal veya komut satırını açın ve `pip install -r requirements.txt` komutunu çalıştırarak gerekli Python kütüphanelerini yükleyin.
-3. **Veritabanı Göçlerini Yapın**: `python manage.py migrate` komutunu çalıştırarak veritabanı göçlerini oluşturun.
-4. **Sunucuyu Başlatın**: `python manage.py runserver` komutuyla yerel geliştirme sunucusunu başlatın.
-5. **Uygulamayı Kullanın**: Web tarayıcınızı açarak `http://127.0.0.1:8000/` adresine gidin ve uygulamanızı kullanmaya başlayın.
+2. **Veritabanı Göçlerini Yapın**: `python manage.py migrate` komutunu çalıştırarak veritabanı göçlerini oluşturun.
+3. **Sunucuyu Başlatın**: `python manage.py runserver` komutuyla yerel geliştirme sunucusunu başlatın.
+4. **Uygulamayı Kullanın**: Web tarayıcınızı açarak `http://127.0.0.1:8000/` adresine gidin ve uygulamanızı kullanmaya başlayın.
 
 ![127 0 0 1_8000_home (1)](https://github.com/user-attachments/assets/1fa6124f-7f2e-4307-a694-dce5223ad1ea)
 ![127 0 0 1_8000_blog_python-dili-hakknda-bilgi](https://github.com/user-attachments/assets/88154b3d-128a-4c4c-8a87-7bc6c4afcb49)
