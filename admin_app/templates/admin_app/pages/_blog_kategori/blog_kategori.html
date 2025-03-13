@@ -22,7 +22,6 @@
         <button type="submit" class="btn btn-primary w-100">Kaydet</button>
     </form>
     <div class="tablo" style='margin-top:15px;'>
-
         <table class="table">
             <thead>
                 <tr>
@@ -45,8 +44,8 @@
                     <td class='bg-danger text-white'>Pasif</td>
                     {% endif %}
                     <td>{{a.slug}}</td>
-                    <td><a href="{% url 'Admin_kateogri_guncelle' a.id %}">Düzenle</a></td>
-                    <td><a href="{% url 'Admin_kateogri_sil' a.id %}">Sil</a></td>
+                    <td><a href="{% url 'Admin_kategori_guncelle' a.id %}">Düzenle</a></td>
+                    <td><a href="{% url 'Admin_kategori_sil' a.id %}">Sil</a></td>
                 </tr>
                 {% endfor %}
             </tbody>

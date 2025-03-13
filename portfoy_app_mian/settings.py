@@ -23,9 +23,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'home',  # Your app name
+    'home',
     'admin_app',
+    'django_ckeditor_5',
     'ckeditor',
+
     'account',
 ]
 

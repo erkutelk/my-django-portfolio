@@ -12,7 +12,7 @@ class title(models.Model):
 
 class about(models.Model):
     about_title=models.TextField()
-    about_description=models.CharField(max_length=50)
+    about_description=models.TextField(max_length=250)
     about_image=models.ImageField()
 
 class servic(models.Model):

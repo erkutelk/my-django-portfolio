@@ -5,11 +5,15 @@
 <form method="POST" novalidate class="needs-validation" enctype="multipart/form-data">
     {% csrf_token %}
 {% for a in form %}
-{{a.label}}
+{{a.label}}{{a.images}}
 {{a}}
 
 {% endfor %}
-<img src="{{ form.instance.images.url }}" alt="Mevcut Resim" class="img-thumbnail" width="200"><br>
+{% if form.instance.images %}
+    <img src="{{ form.instance.images.url }}" alt="Mevcut Resim" class="img-thumbnail" width="200"><br>
+{% else %}
+    <p>Mevcut bir resim yok.</p>
+{% endif %}
 <button type="submit">Kaydet</button>
 </form>
 

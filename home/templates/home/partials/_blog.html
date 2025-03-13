@@ -18,7 +18,7 @@
             <div class="journal-txt"><a href="{% url "detay" portfoy_projeler_list.slug %}">
 
               <h4><a href="{% url "detay" portfoy_projeler_list.slug %}">{{ portfoy_projeler_list.title_blog|title}}</a></h4>
-              <p class="separator">{{portfoy_projeler_list.description_blog|truncatechars:25}} <a href="{% url "detay" portfoy_projeler_list.slug %}">Devamı</a></p>
+              <p class="separator">{{portfoy_projeler_list.description_blog|truncatechars:155}} <a href="{% url "detay" portfoy_projeler_list.slug %}">Devamı</a></p>
             </a>
             </div>
           </div>

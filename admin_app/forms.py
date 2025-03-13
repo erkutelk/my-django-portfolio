@@ -16,7 +16,7 @@ class blog_ekle_forms(forms.ModelForm):
             'description_blog': forms.Textarea(attrs={"class": 'form-control'}),
             'isBlog_blog': forms.CheckboxInput(attrs={"class": 'form-check-input'}),
             'blog_kategori': forms.Select(attrs={"class": 'form-control'}),
-            'slug':forms.TextInput(attrs={"class": 'form-control', 'readonly': 'readonly'}),  # Make the slug field read-only
+            'slug':forms.TextInput(attrs={"class": 'form-control'}),  # Make the slug field read-only
         }
         error_messages = {
             'title_blog': {
@@ -89,7 +89,7 @@ class admin_portfoy_form(forms.ModelForm):
         }
         widgets = {
             'title': forms.TextInput(attrs={"class": 'form-control'}),
-            'description' : forms.CharField(widget=forms.Textarea(attrs={"class": 'form-control'})),
+            'description': forms.Textarea(attrs={"class": 'form-control'}),
             'isActive': forms.CheckboxInput(attrs={"class": 'form-check-input'}),
             'slug':forms.TextInput(attrs={"class": 'form-control','readonly': 'readonly'}),
             'categories':forms.Select(attrs={"class": 'form-control'})
@@ -118,7 +118,7 @@ class admin_info_form(forms.ModelForm):
             'title': forms.TextInput(attrs={"class": 'form-control'}),
             'description': forms.Textarea(attrs={"class": 'form-control'}),
             'linkedin': forms.TextInput(attrs={"class": 'form-control'}),
-            'instagram': forms.TextInput(attrs={"class": 'form-control', 'readonly': 'readonly'}),
+            'instagram': forms.TextInput(attrs={"class": 'form-control'}),
             'git': forms.TextInput(attrs={"class": 'form-control'}),
         }
         error_messages = {
