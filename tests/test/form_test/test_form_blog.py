@@ -1,6 +1,6 @@
 import pytest
-from admin_app.forms import blog_kategori_form,admin_info_form,admin_contact_form,admin_servic_form,admin_portfoy_form
-from home.models import portfoy_kategori
+from admin_app.forms import blog_kategori_form,admin_info_form,admin_contact_form,admin_servic_form,admin_portfoy_form,blog_ekle_forms
+from home.models import portfoy_kategori,blog_kategori
 from django.core.files.uploadedfile import SimpleUploadedFile
 from admin_app.forms import admin_info_form
 def test_blog_kategori_form_ile_ekleme():
@@ -8,7 +8,6 @@ def test_blog_kategori_form_ile_ekleme():
     form=blog_kategori_form(data=form_data)
     assert form.is_valid(),'Eklenen değerler gönderilen dosya formatına uygun değil.'
     print(f'🟩 Kullanıcı blog kategori eklendi.{form.cleaned_data}')
-
 
 def test_form_ile_info_sayfasini_guncelleme():
     with open(r"C:\Users\erkut\my-django-portfolio\uploads\images\Python_5.png", "rb") as img:
@@ -49,3 +48,16 @@ def test_portfoy_ekleme_islemi():
 
     assert form.is_valid(), form.errors
     print(f'🟩 portföy ekleme işlemi yapıldı')
+
+def test_form_ile_blog_ekleme():
+    blog_kategori_object = blog_kategori.objects.create(kategori='isim-naber', isActive=True)
+
+    with open(r"C:\Users\erkut\my-django-portfolio\uploads\images\Python_5.png", "rb") as img:
+        image_file = SimpleUploadedFile("Python_5.png", img.read(), content_type="image/png")
+
+    deger = {'title_blog': 'deger','description_blog': 'deger','isBlog_blog': True,'blog_kategori': blog_kategori_object.id,'image':image_file,'slug': 'naberrer'}
+
+    form_data = blog_ekle_forms(data=deger, files={'image': image_file})
+
+    assert form_data.is_valid(), form_data.errors
+    print('🟩 Blog ekleme başarılı')
