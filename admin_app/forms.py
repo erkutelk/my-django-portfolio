@@ -1,5 +1,6 @@
 from django import forms # type: ignore
 from home.models import blog,menu,blog_kategori,portfoy_project,title,servic,about,contact
+from home.models import portfoy_project
 
 class blog_ekle_forms(forms.ModelForm):  
     class Meta:

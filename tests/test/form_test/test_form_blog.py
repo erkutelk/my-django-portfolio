@@ -1,5 +1,5 @@
 import pytest
-from admin_app.forms import blog_kategori_form,admin_info_form,admin_contact_form,admin_servic_form
+from admin_app.forms import blog_kategori_form,admin_info_form,admin_contact_form,admin_servic_form,admin_portfoy_form
 from home.models import portfoy_kategori
 from django.core.files.uploadedfile import SimpleUploadedFile
 from admin_app.forms import admin_info_form
@@ -26,10 +26,26 @@ def test_contact_güncelleme():
     form_data = {'title': 'Kalem', 'konum': 'Konum', 'konum2': 'Konum2', 'telefon': '11111111111', 'mail': 'test@gmail.com'}
     contact_object=admin_contact_form(data=form_data)
     assert contact_object.is_valid()
-    print(f'🟩 İletişim sayfsı sorunsuz bir şekilde çalışıyor{contact_object.cleaned_data}')
+    # print(f'🟩 İletişim sayfsı sorunsuz bir şekilde çalışıyor{contact_object.cleaned_data}')
+    print(f'🟩 İletişim sayfası sorunsuz çalışıyor.')
+
 
 def test_servis_guncelleme():
     form_data={'title':'Naber','description':'Naber','isActive':True}
     form=admin_servic_form(data=form_data)
     assert form.is_valid()
-    print(f'Servis güncelleme işlemleri yapıldı.')
+    print(f'🟩 Servis güncelleme işlemleri yapıldı.')
+
+
+def test_portfoy_ekleme_islemi():
+    portfoy_kategori_objects = portfoy_kategori.objects.create(kategori='isim-naber', isActive=True)
+
+    with open(r"C:\Users\erkut\my-django-portfolio\uploads\images\Python_5.png", "rb") as img:
+        image_file = SimpleUploadedFile("Python_5.png", img.read(), content_type="image/png")
+
+    deger = {'title': 'İsim','description': '<p>Deger</p>','isActive': True,'categories': portfoy_kategori_objects.id,'images': image_file,'slug': 'isim'}
+
+    form = admin_portfoy_form(data=deger, files={'images': image_file}) 
+
+    assert form.is_valid(), form.errors
+    print(f'🟩 portföy ekleme işlemi yapıldı')
