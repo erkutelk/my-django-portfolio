@@ -1,5 +1,5 @@
 import pytest
-from admin_app.forms import blog_kategori_form,admin_info_form,admin_contact_form
+from admin_app.forms import blog_kategori_form,admin_info_form,admin_contact_form,admin_servic_form
 from home.models import portfoy_kategori
 from django.core.files.uploadedfile import SimpleUploadedFile
 from admin_app.forms import admin_info_form
@@ -28,4 +28,8 @@ def test_contact_güncelleme():
     assert contact_object.is_valid()
     print(f'🟩 İletişim sayfsı sorunsuz bir şekilde çalışıyor{contact_object.cleaned_data}')
 
-
+def test_servis_guncelleme():
+    form_data={'title':'Naber','description':'Naber','isActive':True}
+    form=admin_servic_form(data=form_data)
+    assert form.is_valid()
+    print(f'Servis güncelleme işlemleri yapıldı.')
