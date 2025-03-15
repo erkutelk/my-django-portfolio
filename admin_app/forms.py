@@ -16,7 +16,7 @@ class blog_ekle_forms(forms.ModelForm):
             'description_blog': forms.Textarea(attrs={"class": 'form-control'}),
             'isBlog_blog': forms.CheckboxInput(attrs={"class": 'form-check-input'}),
             'blog_kategori': forms.Select(attrs={"class": 'form-control'}),
-            'slug':forms.TextInput(attrs={"class": 'form-control'}),  # Make the slug field read-only
+            'slug':forms.TextInput(attrs={"class": 'form-control', 'readonly': 'readonly'}),  # Make the slug field read-only
         }
         error_messages = {
             'title_blog': {
