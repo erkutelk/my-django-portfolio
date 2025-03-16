@@ -8,7 +8,8 @@ from tests.pages.blog_page import Anasayfa
 from tests.pages.portfoy_page import test_portfoy
 from tests.pages.hakkimizda_page import HakkimizdaPage
 from tests.pages.iletisim_page import IletisimPage
-
+from home.views import home_
+from home.views import detay
 
 import pytest
 from django.urls import reverse, resolve
@@ -36,12 +37,16 @@ from django.urls import reverse, resolve
     ('servis_sil', {"id": 1}),
     ('about_update', {}),
     ('contactGuncelle', {}),
+    ('anasayfa', {}),
+    ('detay',{"slug":"Test"})
 ])
 def test_url_resolves_correctly(url_name, kwargs):
     path = reverse(url_name, kwargs=kwargs)
     resolved_func = resolve(path).func
 
     expected_funcs = {
+        'anasayfa':home_,
+        'detay':detay,
         'admin_page': _admin_menu.Admin_Menu.admin_page_funcation,
         'navbar_ekle': _admin_menu.Admin_Menu.navbar_ekle_funcation,
         'navbar_sil': _admin_menu.Admin_Menu.navbar_sil,
