@@ -12,16 +12,19 @@ from ..forms import admin_info_form
 from django.contrib import messages
 
 class Admin_info:
+    @staticmethod
     def guncelle(request):
         admin_info_first_item = title.objects.first()
-
         if request.method == 'POST':
-            form = admin_info_form(request.POST, request.FILES, instance=admin_info_first_item)
-            if form.is_valid():
-                form.save()
-                return redirect('info_guncelle')
+            if admin_info_first_item:
+                form = admin_info_form(request.POST, request.FILES, instance=admin_info_first_item)
+                if form.is_valid():
+                    form.save()
+                    return redirect('info_guncelle')
+                else:
+                    print("Form errors:", form.errors)
             else:
-                print("Form errors:", form.errors)
+                Admin_info.ekle()
         else:
             if admin_info_first_item:
                 form = admin_info_form(instance=admin_info_first_item)
@@ -29,3 +32,4 @@ class Admin_info:
                 form = admin_info_form()
 
         return render(request, 'admin_app/pages/_info/admin_info.html', {'form': form})
+

@@ -10,6 +10,7 @@ from tests.pages.hakkimizda_page import HakkimizdaPage
 from tests.pages.iletisim_page import IletisimPage
 from home.views import home_
 from home.views import detay
+from tests.pages.info_page import site_baslangic
 
 import pytest
 from django.urls import reverse, resolve
@@ -31,7 +32,7 @@ from django.urls import reverse, resolve
     ('protfoy_all', {}),
     ('portfoy_sil', {"id": 1}),
     ('portfoy_guncelle', {"id": 1}),
-    ('info_guncelle', {"id": 1}),
+    ('info_guncelle', {}),
     ('servis_ekle', {}),
     ('servis_guncelle', {"id": 1}),
     ('servis_sil', {"id": 1}),
