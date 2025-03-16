@@ -15,7 +15,7 @@ urlpatterns = [
     path('yonetim', _admin_menu.Admin_Menu.admin_page_funcation, name='admin_page'),
     path('yonetim/navbar_ekle', _admin_menu.Admin_Menu.navbar_ekle_funcation, name='navbar_ekle'),
     path('yonetim/navbar_sil/<int:id>', _admin_menu.Admin_Menu.navbar_sil, name='navbar_sil'),
-    path('yonetim/navbar_düzenle/<int:id>', _admin_menu.Admin_Menu.navbar_düzenle, name='navbar_düzenle'),
+    path('yonetim/navbar_duzenle/<int:id>', _admin_menu.Admin_Menu.navbar_düzenle, name='navbar_düzenle'),
 
     #? Blog
     path('yonetim/blog_ekle', _admin_blog.Admin_Blog.blog_ekle, name='blog_ekle'),
