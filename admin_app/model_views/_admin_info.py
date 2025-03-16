@@ -6,6 +6,11 @@ from django.template.defaultfilters import slugify # type: ignore
 from django.shortcuts import render, get_object_or_404, redirect
 from home.models import title
 from django.contrib import messages
+from django.shortcuts import render, redirect
+from home.models import title
+from ..forms import admin_info_form
+from django.contrib import messages
+
 class Admin_info:
     def guncelle(request):
         admin_info_first_item = title.objects.first()
