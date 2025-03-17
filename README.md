@@ -30,7 +30,17 @@ Uygulama, tüm bu işlemleri gerçekleştirebileceğiniz dinamik bir arayüze sa
 ![127 0 0 1_8000_yonetim_portfoy_guncelle_8](https://github.com/user-attachments/assets/76278444-715a-4418-8abc-0d068efb1e5c)
 ![127 0 0 1_8000_yonetim_blog_ekle](https://github.com/user-attachments/assets/1e9935b4-3cd6-4d2f-b830-57033eb1d54a)
 
+## Testler ve Bulduğum Hatalar
 
+Bu branch'te, portföy web sitesine yazdığım testler bulunmaktadır. Bu testler sayesinde fark ettiğim bazı hatalar şunlardır:
 
+1. **Blog Ekleme:** Kategori eklemeden blog eklemek mümkün olmamaktadır.
+2. **Portföy Ekleme:** Portföy eklerken kategori eklemeden yeni bir portföy eklenememektedir.
+3. **About Sayfası:** Gözden kaçırdığım bir "About" sayfası bulunmaktadır.
 
-- [Erkut ELİK] - Proje geliştiricisi
+Bu hataları görmek için aşağıdaki komutu kullanabilirsiniz:
+**********************
+**pytest --html=rapor.html --self-contained-html**
+***********************
+
+**[Erkut ELİK] - Proje geliştiricisi**
