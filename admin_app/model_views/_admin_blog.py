@@ -5,6 +5,8 @@ from ..forms import blog_ekle_forms
 from django.template.defaultfilters import slugify # type: ignore
 from django.shortcuts import render, get_object_or_404, redirect
 from home.models import title
+from django.db import IntegrityError
+
 from django.contrib import messages
 class Admin_Blog:
     @staticmethod
@@ -12,9 +14,13 @@ class Admin_Blog:
         if request.method == 'POST':
             blog_form = blog_ekle_forms(request.POST, request.FILES)
             if blog_form.is_valid():
-                blog_form.save()
-                messages.success(request, "Blog Başarıyla Eklendi")
-
+                try:
+                    blog_form.save()
+                    messages.success(request, "Blog Başarıyla Eklendi")
+                except IntegrityError:
+                    messages.error(request, "Slug benzersiz olmalı, farklı bir başlık deneyin.")
+            else:
+                messages.error(request, "Formda hata var, lütfen kontrol edin.")
         else:
             blog_form = blog_ekle_forms()
 
